@@ -1,0 +1,49 @@
+Original link: https://docs.qingcloud.com/product/network/vpc
+
+•	Web 2.0
+•	Overview
+•	Create a VPC network
+•	Manage routers
+•	Manage features
+•	Host
+
+Web 2.0
+VPC network is a private large-scale network that can be pre-configured for users in the QingCloud environment. CHIn VPC network, you can customize IP address range and create subnets, and create various cloud resources such as host, database and big data.
+A VPC network can connect up to 254 subnets (Vxnet) and accommodate up to 60,000 virtual machines. Through distributed router and virtual direct-link technology, a VPC network of QingCloud can ensure the high-performance and high-availability of network cluster in the situation of large-scale deployment. It can also efficiently interconnect with Internet. Any host for managing VPC network can directly bind to Internet IP address while load balancer can also directly connect hosts within the VPC network.
+In a VPC network, management routers only fulfill management features such as VPN, tunnel, DNS and port forwarding, and forwarding and routing of corresponding management flow. Hosts in a VPC network can bind to their own Internet IP and set up private firewall. Those IP addresses, firewalls and management routers are no subordinate to each other.
+Note
+Currently, VPC network is supported in Beijing 3 and Shanghai 1 area.
+For network guidelines of other areas, see Web 1.0.
+Overview
+This guideline is intended to introduce main properties of a VPC network, the way to create a VPC network and several main management features.
+Create a VPC network
+As introduced at the beginning, you can customize IP address range in a VPC network and let management routers fulfill management features such as VPN, tunnel, DNS and port forwarding, so it's necessary to set their properties when you create a VPC network.
+ 
+Wherein:
+Address range: Typically, the address range of a VPC network is an address at B segment and the subnets of the VPC network must be within this range.
+Type: Different types of the management router of a VPC network have different forwarding capabilities for management flow. You can make your choice based on your business features and demands. For an existing VPC network, you can change its type after you shut it down.
+Firewall: This is the firewall for the management router of a VPC network. Each VPC network has one management router that provides management services such as port forwarding, tunnel service ( GRE Tunnel 、IPSec Tunnel ) and VPN service.
+Click Submit after you complete the settings. The VPC network properties that you create are:
+ 
+Manage routers
+Besides the type of management router and firewall specified when you create the VPC network, the management router has also the following properties:
+Internet IP: The Internet IP address of management router is used to access management services such as port forwarding, tunnel service ( GRE Tunnel 、IPSec Tunnel ) and VPN service from the public network.
+Intranet IP: The intranet IP address of management router is used to access management services from the QingCloud intranet.
+Intranet domain alias: The intranet domain alias of management router.
+You can click the icon beside each property to add, modify or delete it. Basic operations such as modifying, enabling, shutting down, expanding and deleting the VPC network can be found in the dropdown menu of More Operations.
+Manager features
+Click the VPC network that you create to enter the details page where you can further modify and adjust the private network and management configuration of the VPC network.
+Private network
+Private network of VPC network refers to a two-layer subnet segment, typically an address at C segment. You can divide a VPC network into several subnets while the host must join a subnet.
+ 
+•	Subnet within a VPC network can be a private network under the master account or a sub-account.
+•	Host, database and big data resources can be directly added in the resource list of private network.
+Manage configuration
+The feature configuration of management router of VPC network and router in Web 1.0 are basically the same, mainly including port forwarding, tunnel service ( GRE tunnel 、IPSec tunnel ), VPN service, DNS service and advanced configuration.
+ 
+Host
+Compared with Web 1.0, hosts that a VPC network manages have these additional features:
+1.	Can directly bind to Internet IP. (Note: When a host binds to an Internet IP, the port forwarding rules from VPC network to it automatically become invalid.)
+2.	Can directly bind to infrastructure network IP.
+3.	Can bind/unbind to firewall rules.
+4.	Can be used as back-end server of load balancer. For more information, see Guidelines for Using Load Balancer.
